@@ -21,7 +21,11 @@ ActiveRecord::Schema.define(version: 2018_09_30_141441) do
     t.string "email"
     t.string "uid"
     t.string "provider"
+    t.string "login"
     t.string "oauth_token"
+    t.string "repos_url"
+    t.string "subscriptions_url"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

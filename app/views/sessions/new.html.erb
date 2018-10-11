@@ -3,10 +3,31 @@
   <%= link_to 'Sign In with Github', '/auth/github' %>
 <% else %>
 
-  <%=image_tag current_user.avatar_url %>
+  <%= image_tag current_user.avatar_url %>
   <p>
     You are signed in as <%= current_user.username %>.  Click the button below to sign out.
   </p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Repository Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @repos.each do |repo| %>
+        <tr>
+          <td><%= repo["name"].inspect %></td>
+          <td><%= link_to "View details", session_path(repo["name"]) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <%= link_to "Next Page", "?page=#{params[:page].to_i + 1}" %>
+    <% if  params[:page].to_i != 1 %>
+     |  <%= link_to "Prev Page", "?page=#{params[:page].to_i - 1}" %>
+    <% end %>
+  </table>
 
   <%= button_to "Sign Out", signout_path, method: :delete %>
 <% end %>

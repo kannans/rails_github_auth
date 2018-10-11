@@ -1,5 +1,13 @@
 {
   "name": "rails_git_repos",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "d3": "^3.5.17",
+    "jquery": "^3.3.1"
+  },
+  "version": "1.0.0",
+  "description": "git repos",
+  "main": "index.js",
+  "author": "kannans <kannanhudson@gmail.com>",
+  "license": "MIT"
 }
